@@ -1,4 +1,4 @@
-//Promesas anidadas
+//Promesas, cuando ocurre un error en una promesa con reject y catch
 function hola(nombre) {
     return new Promise(function(resolve, reject) {
         setTimeout(function() {
@@ -12,7 +12,8 @@ function hablar(nombre) {
     return new Promise( (resolve, reject) => {
         setTimeout(function () {
             console.log('bla bla bla');
-            resolve();
+            //resolve();
+            reject('Hay un error')
         }, 1000)
     });
 }
@@ -38,4 +39,8 @@ hola('Diego')
     .then(adios)
     .then((nombre) => {
         console.log('Terminado el proceso');
+    })
+    .catch(error => {
+        console.log('Ha habido un error:');
+        console.log(error);
     })
