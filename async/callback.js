@@ -1,3 +1,4 @@
+//Funcion comportandose asincrona
 function soyAsincrona() {
     setTimeout(function() {
         console.log('Estoy siendo asíncrono')
