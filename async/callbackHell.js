@@ -1,4 +1,4 @@
-//Funciones en configuracion para un callbackHell
+//Funciones en configuracion recursiva para eliminar administrar callbackHell
 function hola(nombre, miCallback) {
     setTimeout(function() {
         console.log('Hola, ' + nombre);
@@ -20,17 +20,35 @@ function adios(nombre, otroCallback) {
     }, 1000);
 }
 
-// CallbackHell
+// Funcion recursiva
+
+function conversacion(nombre, veces, callback) {
+    if (veces > 0) {
+        hablar(function () {
+            conversacion(nombre, --veces, callback);
+        })
+    } else {
+        adios(nombre, callback);
+    }
+};
+
 
 console.log('Iniciando proceso....')
-hola('Diego', function(nombre) {
-    hablar(function () {
-        hablar(function () {
-            hablar(function () {
-                adios(nombre, function() {
-                    console.log('Terminando proceso....');
-                });
-            });
-        });
+hola('Diego', function (nombre) {
+    conversacion(nombre, 4, function() {
+        console.log('Proceso terminado');
     });
 });
+
+
+// hola('Diego', function(nombre) {
+//     hablar(function () {
+//         hablar(function () {
+//             hablar(function () {
+//                 adios(nombre, function() {
+//                     console.log('Terminando proceso....');
+//                 });
+//             });
+//         });
+//     });
+// });
