@@ -1,4 +1,4 @@
-//async await, comprobando que lo que esta por fuera de a funcion async, se comporta de manera asincrona
+//async await.
 async function hola(nombre) {
     return new Promise(function(resolve, reject) {
         setTimeout(function() {
@@ -34,8 +34,9 @@ async function main() {
     await hablar();
     await hablar();
     await adios(nombre);
+    console.log('Termina proceso');
 }
 
 console.log('Inicia proceso...');
 main();
-console.log('Termina proceso');
+
