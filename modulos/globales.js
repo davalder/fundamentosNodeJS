@@ -14,3 +14,7 @@ let intervalo = setInterval(function () {
 setImmediate(function() {
     console.log('Hola inmediato');
 });
+
+// require, con este comando se solicitan modulos que se necesiten
+
+require()
