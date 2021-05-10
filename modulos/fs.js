@@ -9,7 +9,7 @@ function leer(ruta, cb) {
     })
 }
 
-leer(__dirname + '/archivo.txt', console.log);
+//leer(__dirname + '/archivo.txt', console.log);
 
 // crear y escribir en un archivo nuevo
 
@@ -23,4 +23,12 @@ function escribir(ruta, contenido, cb) {
     });
 }
 
-escribir(__dirname + '/archivo1.txt', 'soy un archivo nuevo', console.log)
+//escribir(__dirname + '/archivo1.txt', 'soy un archivo nuevo', console.log)
+
+// borrar un archivo
+
+function borrar(ruta, cb) {
+    fs.unlink(ruta, cb);
+}
+
+borrar(__dirname + '/archivo1.txt', console.log);
