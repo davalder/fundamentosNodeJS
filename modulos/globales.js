@@ -8,3 +8,9 @@ let intervalo = setInterval(function () {
     }
     i++;
 }, 1000);
+
+// setImmediate, ejecuta el codigo de inmediato
+
+setImmediate(function() {
+    console.log('Hola inmediato');
+});
