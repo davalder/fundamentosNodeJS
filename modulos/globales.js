@@ -18,3 +18,9 @@ setImmediate(function() {
 // require, con este comando se solicitan modulos que se necesiten
 
 require()
+
+// Crear Variables globales
+
+globalThis.miVariable = 'elValor';
+
+console.log(miVariable);
