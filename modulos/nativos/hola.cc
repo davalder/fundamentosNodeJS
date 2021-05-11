@@ -13,11 +13,11 @@ using v8::Value;
 void Method(const FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = args.GetIsolate();
   args.GetReturnValue().Set(String::NewFromUtf8(
-      isolate, "world").ToLocalChecked());
+      isolate, "mundo"));
 }
 
 void Initialize(Local<Object> exports) {
-  NODE_SET_METHOD(exports, "hello", Method);
+  NODE_SET_METHOD(exports, "hola", Method);
 }
 
 NODE_MODULE(NODE_GYP_MODULE_NAME, Initialize)
