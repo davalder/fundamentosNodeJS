@@ -1,11 +1,13 @@
 //se llama el paquete file system
 const fs = require('fs');
+const stream = require('stream');
+const util = require('util');
 
-// crear el stream
+//crear el stream
 
-// let data = '';
+let data = '';
 
-// let readableStream = fs.createReadStream(__dirname + '/input.txt');
+let readableStream = fs.createReadStream(__dirname + '/input.txt');
 
 //  //se lee el stream, el cual toma la info del archivo input.txt
 // readableStream.setEncoding('UTF8'); // se define el tipo de codigo, para este caso es texto y se usa el estandar UTF8
@@ -22,6 +24,27 @@ const fs = require('fs');
 
 //Ahora realizarmos escriturade un stream
 
-process.stdout.write('Hola '); //.stdout es la salida estandar del sistema, y es un buffer
-process.stdout.write('que ');
-process.stdout.write('tal ');
+// process.stdout.write('Hola '); // process.stdout es la salida estandar del sistema, y es un buffer
+// process.stdout.write('que ');
+// process.stdout.write('tal ');
+
+//creamos un buffer de transformacion
+
+const Transform = stream.Transform;
+
+function Mayus() {
+    Transform.call(this);
+}
+util.inherits(Mayus, Transform);
+
+Mayus.prototype._transform = function(chunk, codif, cb) {
+    chunkMayus  = chunk.toString().toUpperCase();
+    this.push(chunkMayus);
+    cb()
+}
+
+let mayus =new Mayus();
+
+readableStream
+    .pipe(mayus)
+    .pipe(process.stdout);
