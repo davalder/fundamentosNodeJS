@@ -17,4 +17,4 @@ for (let i = 0; i < 26; i++) {
     abc[i] = i + 97; // 97 es la letra a, 98 la b, 99 la c, asi hasta z
 }
 
-console.log(abc.toString()); // como la info del buffer esta en hexagecimal, se debe pasar por toString para ser leida como letras.
+console.log(abc.toString()); // como la info del buffer se muestras hexagecimal, se debe pasar por toString para ser leida como letras.
