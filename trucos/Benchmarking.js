@@ -17,4 +17,23 @@ for (let j = 0; j < 100000000; j++) {
 }
 
 console.timeEnd('bucle2');
+
+
+// media de tiempo con proceso asincrono
+console.log('Inicia proceso asincrono');
+console.time('asincrono');
+asincrona()
+    .then(() => {
+        console.timeEnd('asincrono');
+    })
+
 console.timeEnd('todo');
+
+function asincrona() {
+    return new Promise ( (resolve) => {
+        setTimeout(function () {
+            console.log('Termina proceso asincrono');
+            resolve()
+        }, 2000)
+    })
+}
