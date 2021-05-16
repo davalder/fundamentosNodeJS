@@ -17,3 +17,6 @@ gulp.task('serve', function(cb) {
             open: true,
         }));
 })
+
+//para ejecutar dos o mas tareas
+gulp.task('default', gulp.series('build', 'serve'))
